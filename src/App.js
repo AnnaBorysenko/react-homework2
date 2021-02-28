@@ -1,36 +1,20 @@
 import React from 'react'
-import Button from "./components/Button";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Posts from "./components/Posts";
 import {connect} from "react-redux";
-import {changeColor} from "./actions/changeColor";
+import {getPosts} from "./actions/getPosts";
 
 
-function App({color, changeColor}) {
-    const buttons = [
-        {id: 1, completed: false, color: 'green', text: 'Green'},
-        {id: 2, completed: false, color: 'red', text: 'Red'},
-        {id: 3, completed: false, color: 'blue', text: 'Blue'},
-    ]
-    console.log(color)
+function App({getPosts}) {
+
     return (
-        <div className="wrapper">
-            <h1>Buttons:</h1>
-            {buttons.map(({id, ...btn}) =>
-                (<Button
-                    onClick={() => changeColor(btn.color)}
-                    style={{backgroundColor: color ?? ''}}
-                    {...btn}
-                    id={id}
-                    key={id}
-                    className={"btn btn-secondary"}
-                />))}
+        <div className="wrapper container d-flex flex-column  justify-content-center">
+            <button onClick={getPosts} className="btn btn-secondary ">Get posts</button>
+            <Posts/>
         </div>
     )
 }
 
-const mapStateToProps = ({setting}) => ({color: setting.color});
 
-
-export default connect(mapStateToProps, {changeColor})(App);
+export default connect(null, {getPosts})(App);
 
 

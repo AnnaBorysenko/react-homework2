@@ -21,4 +21,17 @@ code {
 }
 .btn {
   margin-right: 20px;
+  margin: 0 auto;
+  max-width: 250px;
+}
+ul {
+padding-top: 50px;
+  list-style: none;
+}
+li {
+  margin-bottom: 20px;
+}
+h5 {
+  text-align: center;
+  text-transform: uppercase;
 }
